@@ -1,0 +1,28 @@
+# CREATION OF THE KEYSPACE
+	
+CREATE KEYSPACE testkeyspace WITH REPLICATION = { 'class' : 'SimpleStrategy' ,  'replication_factor' : 1 };
+
+DESCRIBE KEYSPACES;
+
+USE testkeyspace;
+
+# CREATION OF THE TABLE
+
+CREATE TABLE customer ( id uuid, first_name text, last_name text, age int);
+
+DESCRIBE customer;
+
+# POPULATING
+# NOTE - WHEN DESCRIBING A TABLE, IT'S GOING TO SHOW ITS DATA STRUCTURE, ONE MUST FOLLOW THIS STRUCTURE WHEN INSERTING NEW DATA, THAT'S WHY THE FIELD age COMES FIRST ON THE
+# INSERTION BELOW 
+
+INSERT INTO customer (id,age,first_name,last_name) VALUES (CC0C93CF-01C2-470B-A763-A4367AD558DF,19,'John','Smith');
+INSERT INTO customer (id,age,first_name,last_name) VALUES (CC555D7B-ED46-4FB6-992A-FDB8318BE2EA,32,'Jim','Strange');
+INSERT INTO customer (id,age,first_name,last_name) VALUES (672383FC-858E-431A-AAA5-2213DDF08482,19,'Molly','Alley');
+INSERT INTO customer (id,age,first_name,last_name) VALUES (EF2B2C60-E1EA-4271-9ADD-262B1F0991A6,40,'Sally','Kristen');
+INSERT INTO customer (id,age,first_name,last_name) VALUES (AC7097EA-F7D7-4248-84D4-CEF40E0DD490,20,'Jessie','Kally');
+
+
+# CHECK FOR INSERTIONS
+
+SELECT * FROM customer;
